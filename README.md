@@ -7,6 +7,8 @@ Se analizarán el promedio de carreras por semana de los 4 equipos finalistas pa
 - Los Angeles Dodgers
 - Houston Astros
 - Atlanta Braves
+El archivo principal con diversos datos sobre la MLB posee fue obtneido en Kaggle mediante el siguiente link:
+- https://projects.fivethirtyeight.com/mlb-api/mlb_elo_latest.csv
 
 Cargar librerías.
 ```R
@@ -16,8 +18,8 @@ library(ggplot2)
 ```
 Leer los archivos CSV sobre MLB con resultados históricos y con el nombre de los equipos y sus siglas.
 ```R
-mlb_historic <- read.csv("mlb_elo.csv")      # MLB Histórico
-mlb_teams <- read.csv("MLB_Teams2.csv")      # MLB Equipos (Contiene las siglas de los equipos)
+mlb_historic <- read.csv("mlb_elo.csv")      # MLB Archivo Histórico
+mlb_teams <- read.csv("MLB_Teams2.csv")      # MLB Equipos (Contiene las siglas de los equipos) para poder facilitar la búsqueda en "mlb_elo.csv"
 ```
 Propiedas del data set
 ```R
