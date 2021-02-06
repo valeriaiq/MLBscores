@@ -169,129 +169,149 @@ rays_average_2020 <- rays_monthly_2020 %>% group_by(month_rays) %>% summarise(sc
 
 
 
-# *********************************** BRAVES 2019 y 2020 ***************************************
+## *********************************** BRAVES 2019 y 2020 ***************************************
 
-# Obtener siglas de los braves para poder filtrar la base de datos histórica.
+Obtener siglas de los braves para poder filtrar la base de datos histórica.
+```R
 braves_code <- mlb_teams %>% select(team_name, tm) %>%
   filter (team_name == "Atlanta Braves") %>%
   rename(team_code = tm)
+```
+### Filtrar datos del 2019
 
-# Filtrar datos del 2019
-
-# Carreras de braves como equipo local
+Carreras de braves como equipo local
+```R
 braves_home_2019 <-  mlb_historic %>% select(date, season, team1, score1) %>%
   filter(team1 == "ATL") %>%
   filter(season == 2019) %>%
   rename(team = team1, score_braves = score1)
-
-# Carreras de braves como equipo visitante
+```
+Carreras de braves como equipo visitante
+```R
 braves_away_2019 <-  mlb_historic %>% select(date, season, team2, score2) %>%
   filter(team2 == "ATL") %>%
   filter(season == 2019) %>%
   rename(team = team2, score_braves = score2)
-
-# Combinar en un solo data frame las carreras de braves como equipo visitante y como local
+```
+Combinar en un solo data frame las carreras de braves como equipo visitante y como local
+```R
 braves_2019 <- rbind(braves_home_2019, braves_away_2019)
+```
 
-#Agrupar por mes 
+Agrupar por mes 
+```R
 braves_monthly_2019 <- mutate(braves_2019, month_braves = format(date, "%m"))
-
-# Carreras promedio por mes en 2019
+```
+Carreras promedio por mes en 2019
+```R
 braves_average_2019 <- braves_monthly_2019 %>% group_by(month_braves) %>% summarise(score_avg_braves = mean(score_braves))
+```
+### Filtrar datos del 2020
 
-# Filtrar datos del 2020
-
-# Carreras de braves como equipo local
+Carreras de braves como equipo local
+```R
 braves_home_2020 <-  mlb_historic %>% select(date, season, team1, score1) %>%
   filter(team1 == "ATL") %>%
   filter(season == 2020) %>%
   rename(team = team1, score_braves = score1)
-
-# Carreras de braves como equipo visitante
+```
+Carreras de braves como equipo visitante
+```R
 braves_away_2020 <-  mlb_historic %>% select(date, season, team2, score2) %>%
   filter(team2 == "ATL") %>%
   filter(season == 2020) %>%
   rename(team = team2, score_braves= score2)
-
-# Combinar en un solo data frame las carreras de Braves como equipo visitante y como local
+```
+Combinar en un solo data frame las carreras de Braves como equipo visitante y como local
+```R
 braves_2020 <- rbind(braves_home_2020, braves_away_2020)
-
-#Agrupar por mes
+```
+Agrupar por mes
+```R
 braves_monthly_2020 <- mutate(braves_2020, month_braves= format(date, "%m"))
-
-# Carreras promedio por mes en 2020
+```
+Carreras promedio por mes en 2020
+```R
 braves_average_2020 <- braves_monthly_2020 %>% group_by(month_braves) %>% summarise(score_avg_braves = mean(score_braves))
+```
 
 
 
-#ggplot(braves_average_2020, aes(x = month, y = score_avg)) + geom_bar(stat='identity') 
+## ************************* Houston Astros 2019 y 2020 **********************************
 
-
-
-# ************************* Houston Astros 2019 y 2020 **********************************
-
-# Obtener siglas de los astros para poder filtrar la base de datos histórica.
-
+Obtener siglas de los astros para poder filtrar la base de datos histórica.
+```R
 astros_code <- mlb_teams %>% select(team_name, tm) %>%
   filter (team_name == "Houston Astros") %>%
   rename(team_code = tm)
+```
+### Filtrar datos del 2019
 
-# Filtrar datos del 2019
-
-# Carreras de astros como equipo local
+ Carreras de astros como equipo local
+ ```R
 astros_home_2019 <-  mlb_historic %>% select(date, season, team1, score1) %>%
   filter(team1 == "HOU") %>%
   filter(season == 2019) %>%
   rename(team = team1, score_astros = score1)
-
-# Carreras de astros como equipo visitante
+```
+Carreras de astros como equipo visitante
+```R
 astros_away_2019 <-  mlb_historic %>% select(date, season, team2, score2) %>%
   filter(team2 == "HOU") %>%
   filter(season == 2019) %>%
   rename(team = team2, score_astros = score2)
-
-# Combinar en un solo data frame las carreras de astros como equipo visitante y como local
+```
+Combinar en un solo data frame las carreras de astros como equipo visitante y como local
+```R
 astros_2019 <- rbind(astros_home_2019, astros_away_2019)
-
-#Agrupar por mes y año
+```
+Agrupar por mes y año
+```R
 astros_monthly_2019 <- mutate(astros_2019, month_astros= format(date, "%m"))
-
-# Carreras promedio por mes en 2019
+```
+Carreras promedio por mes en 2019
+```R
 astros_average_2019 <- astros_monthly_2019 %>% group_by(month_astros) %>% summarise(score_avg_astros = mean(score_astros))
+```
 
+### Filtrar datos del 2020
 
-# Filtrar datos del 2020
-
-# Carreras de astros como equipo local
+Carreras de astros como equipo local
+```R
 astros_home_2020 <-  mlb_historic %>% select(date, season, team1, score1) %>%
   filter(team1 == "HOU") %>%
   filter(season == 2020) %>%
   rename(team = team1, score_astros = score1)
-
-# Carreras de astros como equipo visitante
+  ```
+Carreras de astros como equipo visitante
+```R
 astros_away_2020 <-  mlb_historic %>% select(date, season, team2, score2) %>%
   filter(team2 == "HOU") %>%
   filter(season == 2020) %>%
   rename(team = team2, score_astros = score2)
-
-# Combinar en un solo data frame las carreras de Dodgers como equipo visitante y como local
+```
+Combinar en un solo data frame las carreras de Dodgers como equipo visitante y como local
+```R
 astros_2020 <- rbind(astros_home_2020, astros_away_2020)
-
-#Agrupar por mes
+```
+Agrupar por mes
+```R
 astros_monthly_2020 <- mutate(astros_2020, month_astros = format(date, "%m"))
-
-# Carreras promedio por mes en 2020
+```
+Carreras promedio por mes en 2020
+```R
 astros_average_2020 <- astros_monthly_2020 %>% group_by(month_astros) %>% summarise(score_avg_astros = mean(score_astros))
+```
 
 
-
-# Data Frame de carreras promedio por mes de los cuatro equipos finalistas en 2020
+### Data Frame de carreras promedio por mes de los cuatro equipos finalistas en 2020
+```R
 mlb_2020 <- cbind (LAD_average_2020 ,rays_average_2020 ,braves_average_2020 , astros_average_2020)
 mlb_2020 <- mlb_2020 %>% select(month, score_avg_LAD, score_avg_rays, score_avg_braves, score_avg_astros  )
+```
 
-
-# Gráfica de carreras promedio por mes de los cuatro equipos finalistas en 2020
-
+#### Gráfica de carreras promedio por mes de los cuatro equipos finalistas en 2020
+```R
 ggplot(mlb_2020, aes(month)) + 
   geom_line(aes(y = score_avg_LAD, group =1, colour = "score_avg_LAD"), size=2.0) + 
   geom_line(aes(y = score_avg_rays,group =1, colour = "score_avg_rays"), size=2.0) +
@@ -301,14 +321,16 @@ ggplot(mlb_2020, aes(month)) +
   xlab ("Mes del año") +
   ggtitle( "Carreras Promedio por Mes en 2020") +
   theme(plot.title = element_text(hjust = 0.5))
+```
 
 
-
-# Data Frame de carreras promedio por mes de los cuatro equipos finalistas en 2019
+### Data Frame de carreras promedio por mes de los cuatro equipos finalistas en 2019
+```R
 mlb_2019 <- cbind (LAD_average_2019 ,rays_average_2019 ,braves_average_2019 , astros_average_2019)
 mlb_2019 <- mlb_2019 %>% select(month, score_avg_LAD, score_avg_rays, score_avg_braves, score_avg_astros  )
-
-# Gráfica de carreras promedio por mes de los cuatro equipos finalistas en 2019
+```
+#### Gráfica de carreras promedio por mes de los cuatro equipos finalistas en 2019
+```R
 ggplot(mlb_2019, aes(month)) + 
   geom_line(aes(y = score_avg_LAD, group =1, colour = "score_avg_LAD"), size=2.0) + 
   geom_line(aes(y = score_avg_rays,group =1, colour = "score_avg_rays"), size= 2.0) +
@@ -319,5 +341,6 @@ ggplot(mlb_2019, aes(month)) +
   labs(fill = "Equipo") +
   ggtitle( "Carreras Promedio por Mes en 2019")+
   theme(plot.title = element_text(hjust = 0.5))
+  ```
 
 
