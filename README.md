@@ -303,10 +303,11 @@ astros_average_2020 <- astros_monthly_2020 %>% group_by(month_astros) %>% summar
 ```
 
 
-### Data Frame de carreras promedio por mes de los cuatro equipos finalistas en 2020
+### Data Frame de carreras promedio por mes de los cuatro equipos finalistas en 2020 en temperada regular (hasta el mes de Septiembre)
 ```R
 mlb_2020 <- cbind (LAD_average_2020 ,rays_average_2020 ,braves_average_2020 , astros_average_2020)
 mlb_2020 <- mlb_2020 %>% select(month, score_avg_LAD, score_avg_rays, score_avg_braves, score_avg_astros  )
+mlb_2020 <- mlb_2020[-c(4),] # Removiendo la última fila que corresponde al mes de octubre
 ```
 
 #### Gráfica de carreras promedio por mes de los cuatro equipos finalistas en 2020
@@ -323,10 +324,11 @@ ggplot(mlb_2020, aes(month)) +
 ```
 
 
-### Data Frame de carreras promedio por mes de los cuatro equipos finalistas en 2019
+### Data Frame de carreras promedio por mes de los cuatro equipos finalistas en 2019 en temperada regular (hasta el mes de Septiembre)
 ```R
 mlb_2019 <- cbind (LAD_average_2019 ,rays_average_2019 ,braves_average_2019 , astros_average_2019)
 mlb_2019 <- mlb_2019 %>% select(month, score_avg_LAD, score_avg_rays, score_avg_braves, score_avg_astros  )
+mlb_2019 <- mlb_2019[-c(8),] # Removiendo la última fila que corresponde al mes de octubre
 ```
 #### Gráfica de carreras promedio por mes de los cuatro equipos finalistas en 2019
 ```R
