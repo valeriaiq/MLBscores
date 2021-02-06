@@ -9,7 +9,7 @@ Se analizarán el promedio de carreras por semana de los 4 equipos finalistas pa
 - Atlanta Braves
 
 
-El archivo principal con diversos datos sobre la MLB posee fue obtneido en Kaggle mediante el siguiente link:
+El archivo principal con diversos datos sobre la MLB fue obtenido en Kaggle mediante el siguiente link:
 - https://projects.fivethirtyeight.com/mlb-api/mlb_elo_latest.csv
 
 Cargar librerías.
