@@ -1,7 +1,7 @@
 # Carreras Promedio por Mes de los Cuatro Finalistas de la MLB en 2020
 
 
-Se analizarán el promedio de carreras por mes de los 4 equipos finalistas para clasificar a la serie mundial del 2020, se busca comparar los resultados de 2020 y 2019, de esta forma se determinará si la pandemia de COVID-19 impactó en los resultados de estos equipos
+Se analizarán el promedio de carreras por semana de los 4 equipos finalistas para clasificar a la serie mundial del 2020, se busca comparar los resultados de 2020 y 2019, de esta forma se determinará si la pandemia de COVID-19 impactó en los resultados de estos equipos
  Equipos finalistas:
 -  Tampa Bay Rays
 - Los Angeles Dodgers
@@ -57,11 +57,11 @@ Combinar en un solo data frame las carreras de Dodgers como equipo visitante y c
 ```R
 LAD_2019 <- rbind(LAD_home_2019, LAD_away_2019)
 ```
-Agrupar por cada 2 semanas.
+Agrupar por cada semana.
 ```R
-LAD_monthly_2019 <- mutate(LAD_2019, month = floor_date(date, "14 days"))
+LAD_monthly_2019 <- mutate(LAD_2019, month = floor_date(date, "7 days"))
 ```
-Carreras promedio por cada 2 semanas en 2019
+Carreras promedio por cada semana en 2019
 ```R
 LAD_average_2019 <- LAD_monthly_2019 %>% group_by(month) %>% summarise(score_avg_LAD = mean(score_LAD))
 ```
@@ -86,11 +86,11 @@ Combinar en un solo data frame las carreras de Dodgers como equipo visitante y c
 ```R
 LAD_2020 <- rbind(LAD_home_2020, LAD_away_2020)
 ```
-Agrupar por cada 2 semanas
+Agrupar por cada semana
 ```R
-LAD_monthly_2020 <- mutate(LAD_2020, month  = floor_date(date, "14 days"))
+LAD_monthly_2020 <- mutate(LAD_2020, month  = floor_date(date, "7 days"))
 ```
-Carreras promedio por cada 2 semanas en 2020
+Carreras promedio por cada semana en 2020
 ```R
 LAD_average_2020 <- LAD_monthly_2020 %>% group_by(month) %>% summarise(score_avg_LAD = mean(score_LAD))
 ```
@@ -128,11 +128,11 @@ Combinar en un solo data frame las carreras de Rays como equipo visitante y como
 ```R
 rays_2019 <- rbind(rays_home_2019, rays_away_2019)
 ```
-Agrupar por cada 2 semanas
+Agrupar por cada semana
 ```R
-rays_monthly_2019 <-mutate(rays_2019, month_rays = floor_date(date, "14 days"))
+rays_monthly_2019 <-mutate(rays_2019, month_rays = floor_date(date, "7 days"))
 ```
-Carreras promedio por cada 2 semanas en 2019
+Carreras promedio por cada semana en 2019
 ```R
 rays_average_2019 <- rays_monthly_2019 %>% group_by(month_rays) %>% summarise(score_avg_rays = mean(score_rays))
 ```
@@ -157,11 +157,11 @@ Combinar en un solo data frame las carreras de Dodgers como equipo visitante y c
 ```R
 rays_2020 <- rbind(rays_home_2020, rays_away_2020)
 ```
-Agrupar por cada 2 semanas
+Agrupar por cada semana
 ```R
-rays_monthly_2020 <- mutate(rays_2020, month_rays = floor_date(date, "14 days"))
+rays_monthly_2020 <- mutate(rays_2020, month_rays = floor_date(date, "7 days"))
 ```
-Carreras promedio por cada 2 semanas en 2020
+Carreras promedio por cada semana en 2020
 ```R
 rays_average_2020 <- rays_monthly_2020 %>% group_by(month_rays) %>% summarise(score_avg_rays = mean(score_rays))
 ```
@@ -198,11 +198,11 @@ Combinar en un solo data frame las carreras de braves como equipo visitante y co
 braves_2019 <- rbind(braves_home_2019, braves_away_2019)
 ```
 
-Agrupar por cada 2 semanas
+Agrupar por cada semana
 ```R
-braves_monthly_2019 <- mutate(braves_2019, month_braves = format(date, "%m"))
+braves_monthly_2019 <- mutate(braves_2019, month_braves = floor_date(date, "7 days"))
 ```
-Carreras promedio por cada 2 semanas en 2019
+Carreras promedio por cada semana en 2019
 ```R
 braves_average_2019 <- braves_monthly_2019 %>% group_by(month_braves) %>% summarise(score_avg_braves = mean(score_braves))
 ```
@@ -226,11 +226,11 @@ Combinar en un solo data frame las carreras de Braves como equipo visitante y co
 ```R
 braves_2020 <- rbind(braves_home_2020, braves_away_2020)
 ```
-Agrupar por cada 2 semanas
+Agrupar por cada semana
 ```R
-braves_monthly_2020 <- mutate(braves_2020, month_braves= floor_date(date, "14 days"))
+braves_monthly_2020 <- mutate(braves_2020, month_braves= floor_date(date, "7 days"))
 ```
-Carreras promedio por cada 2 semanas en 2020
+Carreras promedio por cada semana en 2020
 ```R
 braves_average_2020 <- braves_monthly_2020 %>% group_by(month_braves) %>% summarise(score_avg_braves = mean(score_braves))
 ```
@@ -265,11 +265,11 @@ Combinar en un solo data frame las carreras de astros como equipo visitante y co
 ```R
 astros_2019 <- rbind(astros_home_2019, astros_away_2019)
 ```
-Agrupar por cada 2 semanas
+Agrupar por cada semana
 ```R
-astros_monthly_2019 <- mutate(astros_2019, month_astros= floor_date(date, "14 days"))
+astros_monthly_2019 <- mutate(astros_2019, month_astros= floor_date(date, "7 days"))
 ```
-Carreras promedio por cada 2 semanas en 2019
+Carreras promedio por cada semana en 2019
 ```R
 astros_average_2019 <- astros_monthly_2019 %>% group_by(month_astros) %>% summarise(score_avg_astros = mean(score_astros))
 ```
@@ -294,58 +294,60 @@ Combinar en un solo data frame las carreras de Dodgers como equipo visitante y c
 ```R
 astros_2020 <- rbind(astros_home_2020, astros_away_2020)
 ```
-Agrupar por cada 2 semanas
+Agrupar por cada semana
 ```R
-astros_monthly_2020 <- mmutate(astros_2020, month_astros= floor_date(date, "14 days"))
+astros_monthly_2020 <- mmutate(astros_2020, month_astros= floor_date(date, "7 days"))
 ```
-Carreras promedio por cada 2 semanas en 2020
+Carreras promedio por cada semana en 2020
 ```R
 astros_average_2020 <- astros_monthly_2020 %>% group_by(month_astros) %>% summarise(score_avg_astros = mean(score_astros))
 ```
 
 
-### Data Frame de carreras promedio Cada 2 semanas de los cuatro equipos finalistas en 2020 en temperada regular (hasta el mes de Septiembre)
+### Data Frame de carreras promedio semana de los cuatro equipos finalistas en 2020 en temperada regular (hasta el mes de Septiembre)
 ```R
+LAD_average_2020 <- LAD_average_2020[-c(16),] #Se quita la semana de la serie mundial que se jugó entre Dodgers y Rays
+rays_average_2020 <- rays_average_2020[-c(16),]
 mlb_2020 <- cbind (LAD_average_2020 ,rays_average_2020 ,braves_average_2020 , astros_average_2020)
 mlb_2020 <- mlb_2020 %>% select(month, score_avg_LAD, score_avg_rays, score_avg_braves, score_avg_astros  )
-mlb_2020 <- mlb_2020[-c(9,10),]
+mlb_2020 <- mlb_2020[-c(13,14,15),
 ```
 
-#### Gráfica de carreras promedio Cada 2 semanas de los cuatro equipos finalistas en 2020
+#### Gráfica de carreras promedio cada semana de los cuatro equipos finalistas en 2020
 ```R
 ggplot(mlb_2020, aes(month)) + 
-  geom_line(aes(y = score_avg_LAD, group =1, colour = "score_avg_LAD"), size=1.0) + 
-  geom_line(aes(y = score_avg_rays,group =1, colour = "score_avg_rays"), size=1.0) +
-  geom_line(aes(y = score_avg_braves, group = 1, colour = "score_avg_braves"), size=1.0) +
-  geom_line(aes(y = score_avg_astros, group = 1, colour = "score_avg_astros"), size=1.0) +
+  geom_point(aes(y = score_avg_LAD, colour = "score_avg_LAD"), size=3.0) + 
+  geom_point(aes(y = score_avg_rays, colour = "score_avg_rays"), size= 3.0) +
+  geom_point(aes(y = score_avg_braves, colour = "score_avg_braves"), size= 3.0) +
+  geom_point(aes(y = score_avg_astros,  colour = "score_avg_astros"), size= 3.0) +
   ylab ("Carreras promedio anotadas") +
   xlab ("Mes del año") +
-  ggtitle( "Carreras Promedio Cada 2 Semanas en 2020") +
+  labs(fill = "Equipo") +
+  ggtitle( "Carreras Promedio Cada Semana en 2020")+
   theme(plot.title = element_text(hjust = 0.5))
+
 ```
 ![Gráfica de Carreras Promedio 2020](https://github.com/valeriaiq/MLBscores/blob/main/score_2w_2020.png)
-![Gráfica de Carreras Promedio 2020 puntos](https://github.com/valeriaiq/MLBscores/blob/main/score_point_2020.png)
 
-### Data Frame de carreras promedio cada 2 semanas de los cuatro equipos finalistas en 2019 en temperada regular (hasta el mes de Septiembre)
+### Data Frame de carreras promedio cada semana de los cuatro equipos finalistas en 2019 en temperada regular (hasta el mes de Septiembre)
 ```R
-astros_average_2019 <- astros_average_2019[-c(21,22),] #Quitando la semana la serie mundial
+astros_average_2019 <- astros_average_2019[-c(35,36,37),] #Quitando la semana la serie mundial
 mlb_2019 <- cbind (LAD_average_2019 ,rays_average_2019 ,braves_average_2019 , astros_average_2019)
 mlb_2019 <- mlb_2019 %>% select(month, score_avg_LAD, score_avg_rays, score_avg_braves, score_avg_astros  )
-mlb_2019 <- mlb_2019[-c(21),]
+mlb_2019 <- mlb_2019[-c(33,34),]
 ```
 #### Gráfica de carreras promedio cada 2 semanas de los cuatro equipos finalistas en 2019
 ```R
 ggplot(mlb_2019, aes(month)) + 
-  geom_line(aes(y = score_avg_LAD, group =1, colour = "score_avg_LAD"), size=1.0) + 
-  geom_line(aes(y = score_avg_rays,group =1, colour = "score_avg_rays"), size= 1.0) +
-  geom_line(aes(y = score_avg_braves, group = 1, colour = "score_avg_braves"), size= 1.0) +
-  geom_line(aes(y = score_avg_astros, group = 1, colour = "score_avg_astros"), size= 1.0) +
+  geom_point(aes(y = score_avg_LAD, colour = "score_avg_LAD"), size=3.0) + 
+  geom_point(aes(y = score_avg_rays, colour = "score_avg_rays"), size= 3.0) +
+  geom_point(aes(y = score_avg_braves, colour = "score_avg_braves"), size= 3.0) +
+  geom_point(aes(y = score_avg_astros,  colour = "score_avg_astros"), size= 3.0) +
   ylab ("Carreras promedio anotadas") +
   xlab ("Mes del año") +
   labs(fill = "Equipo") +
-  ggtitle( "Carreras Promedio Cada 2 Semanas en 2019")+
+  ggtitle( "Carreras Promedio Cada Semana en 2019")+
   theme(plot.title = element_text(hjust = 0.5))
   ```
 ![Gráfica de Carreras Promedio 2019](https://github.com/valeriaiq/MLBscores/blob/main/score_2w_2019.png)
-![Gráfica de Carreras Promedio 2019 puntos](https://github.com/valeriaiq/MLBscores/blob/main/score_point_2019.png)
 
