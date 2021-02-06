@@ -27,7 +27,7 @@ Convertir la fecha la formato adecuado (date)
 mlb_historic <- mutate(mlb_historic, date = as.Date(date, "%Y-%m-%d"))
 ```
 
-***************** Los Angeles Dodgers 2020 y 2019 ****************************
+## ***************** Los Angeles Dodgers 2020 y 2019 ****************************
 
 Obtener siglas de los Dodgers para poder filtrar la base de datos histórica.
 
@@ -38,113 +38,133 @@ dodgers_code <- mlb_teams %>% select(team_name, tm) %>%
 ```
 ### Filtrar datos del 2019
 
-# Carreras de Dodgers como equipo local
+Carreras de Dodgers como equipo local
+```R
 LAD_home_2019 <-  mlb_historic %>% select(date, season, team1, score1) %>%
   filter(team1 == "LAD") %>%
   filter(season == 2019) %>%
   rename(team = team1, score_LAD = score1)
-
-# Carreras de Dodgers como equipo visitante
+```
+Carreras de Dodgers como equipo visitante
+```R
 LAD_away_2019 <-  mlb_historic %>% select(date, season, team2, score2) %>%
   filter(team2 == "LAD") %>%
   filter(season == 2019) %>%
   rename(team = team2, score_LAD = score2)
-
-# Combinar en un solo data frame las carreras de Dodgers como equipo visitante y como local
+```
+Combinar en un solo data frame las carreras de Dodgers como equipo visitante y como local
+```R
 LAD_2019 <- rbind(LAD_home_2019, LAD_away_2019)
-
-#Agrupar por mes y año
+```
+Agrupar por mes.
+```R
 LAD_monthly_2019 <- mutate(LAD_2019, month = format(date, "%m"))
-
-# Carreras promedio por mes en 2019
+```
+Carreras promedio por mes en 2019
+```R
 LAD_average_2019 <- LAD_monthly_2019 %>% group_by(month) %>% summarise(score_avg_LAD = mean(score_LAD))
+```
 
+### Filtrar datos del 2020
 
-# Filtrar datos del 2020
-
-# Carreras de Dodgers como equipo local
+Carreras de Dodgers como equipo local
+```R
 LAD_home_2020 <-  mlb_historic %>% select(date, season, team1, score1) %>%
   filter(team1 == "LAD") %>%
   filter(season == 2020) %>%
   rename(team = team1, score_LAD = score1)
-
-# Carreras de Dodgers como equipo visitante
+```
+Carreras de Dodgers como equipo visitante
+```R
 LAD_away_2020 <-  mlb_historic %>% select(date, season, team2, score2) %>%
   filter(team2 == "LAD") %>%
   filter(season == 2020) %>%
   rename(team = team2, score_LAD = score2)
-
-# Combinar en un solo data frame las carreras de Dodgers como equipo visitante y como local
+```
+Combinar en un solo data frame las carreras de Dodgers como equipo visitante y como local
+```R
 LAD_2020 <- rbind(LAD_home_2020, LAD_away_2020)
-
-#Agrupar por mes
+```
+Agrupar por mes
+```R
 LAD_monthly_2020 <- mutate(LAD_2020, month = format(date, "%m"))
-
-# Carreras promedio por mes en 2020
+```
+Carreras promedio por mes en 2020
+```R
 LAD_average_2020 <- LAD_monthly_2020 %>% group_by(month) %>% summarise(score_avg_LAD = mean(score_LAD))
+```
 
 
 
 
 
 
+## ********************************** Tampa Bay Rays 2019 y 2020 ******************************
 
-# ********************************** Tampa Bay Rays 2019 y 2020 ******************************
 
-
-# Obtener siglas de los Rays para poder filtrar la base de datos histórica.
-
+Obtener siglas de los Rays para poder filtrar la base de datos histórica.
+```R
 rays_code <- mlb_teams %>% select(team_name, tm) %>%
   filter (team_name == "Tampa Bay Rays") %>%
   rename(team_code = tm)
+```
+### Filtrar datos del 2019
 
-# Filtrar datos del 2019
-
-# Carreras de Rays como equipo local
+Carreras de Rays como equipo local
+```R
 rays_home_2019 <-  mlb_historic %>% select(date, season, team1, score1) %>%
   filter(team1 == "TBD") %>%
   filter(season == 2019) %>%
   rename(team = team1, score_rays = score1)
-
-# Carreras de Rays como equipo visitante
+```
+Carreras de Rays como equipo visitante
+```R
 rays_away_2019 <-  mlb_historic %>% select(date, season, team2, score2) %>%
   filter(team2 == "TBD") %>%
   filter(season == 2019) %>%
   rename(team = team2, score_rays = score2)
-
-# Combinar en un solo data frame las carreras de Rays como equipo visitante y como local
+```
+Combinar en un solo data frame las carreras de Rays como equipo visitante y como local
+```R
 rays_2019 <- rbind(rays_home_2019, rays_away_2019)
-
-#Agrupar por mes y año
+```
+Agrupar por mes 
+```R
 rays_monthly_2019 <- mutate(rays_2019, month_rays = format(date, "%m"))
-
-# Carreras promedio por mes en 2019
+```
+Carreras promedio por mes en 2019
+```R
 rays_average_2019 <- rays_monthly_2019 %>% group_by(month_rays) %>% summarise(score_avg_rays = mean(score_rays))
+```
 
+### Filtrar datos del 2020
 
-# Filtrar datos del 2020
-
-# Carreras de Rays como equipo local
+Carreras de Rays como equipo local
+```R
 rays_home_2020 <-  mlb_historic %>% select(date, season, team1, score1) %>%
   filter(team1 == "TBD") %>%
   filter(season == 2020) %>%
   rename(team = team1, score_rays = score1)
-
-# Carreras de Rays como equipo visitante
+```
+Carreras de Rays como equipo visitante
+```R
 rays_away_2020 <-  mlb_historic %>% select(date, season, team2, score2) %>%
   filter(team2 == "TBD") %>%
   filter(season == 2020) %>%
   rename(team = team2, score_rays = score2)
-
-# Combinar en un solo data frame las carreras de Dodgers como equipo visitante y como local
+```
+Combinar en un solo data frame las carreras de Dodgers como equipo visitante y como local
+```R
 rays_2020 <- rbind(rays_home_2020, rays_away_2020)
-
-#Agrupar por mes
+```
+Agrupar por mes
+```R
 rays_monthly_2020 <- mutate(rays_2020, month_rays= format(date, "%m"))
-
-# Carreras promedio por mes en 2020
+```
+Carreras promedio por mes en 2020
+```R
 rays_average_2020 <- rays_monthly_2020 %>% group_by(month_rays) %>% summarise(score_avg_rays = mean(score_rays))
-
+```
 
 
 
