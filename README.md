@@ -169,7 +169,7 @@ rays_average_2020 <- rays_monthly_2020 %>% group_by(month_rays) %>% summarise(sc
 
 
 
-## *********************************** BRAVES 2019 y 2020 ***************************************
+## *********************************** Atlanta Braves 2019 y 2020 ***********************************
 
 Obtener siglas de los braves para poder filtrar la base de datos histórica.
 ```R
