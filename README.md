@@ -27,7 +27,7 @@ Convertir la fecha la formato adecuado (date)
 mlb_historic <- mutate(mlb_historic, date = as.Date(date, "%Y-%m-%d"))
 ```
 
-## ***************** Los Angeles Dodgers 2020 y 2019 ****************************
+## *************************** Los Angeles Dodgers 2019 y 2020 ****************************
 
 Obtener siglas de los Dodgers para poder filtrar la base de datos histórica.
 
