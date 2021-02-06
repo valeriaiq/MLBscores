@@ -27,7 +27,7 @@ Convertir la fecha la formato adecuado (date)
 mlb_historic <- mutate(mlb_historic, date = as.Date(date, "%Y-%m-%d"))
 ```
 
-## *************************** Los Angeles Dodgers 2019 y 2020 ****************************
+## Los Angeles Dodgers 2019 y 2020 
 
 Obtener siglas de los Dodgers para poder filtrar la base de datos histórica.
 
@@ -99,8 +99,7 @@ LAD_average_2020 <- LAD_monthly_2020 %>% group_by(month) %>% summarise(score_avg
 
 
 
-## ********************************** Tampa Bay Rays 2019 y 2020 ******************************
-
+##  Tampa Bay Rays 2019 y 2020 
 
 Obtener siglas de los Rays para poder filtrar la base de datos histórica.
 ```R
@@ -169,7 +168,7 @@ rays_average_2020 <- rays_monthly_2020 %>% group_by(month_rays) %>% summarise(sc
 
 
 
-## *********************************** Atlanta Braves 2019 y 2020 ***********************************
+## Atlanta Braves 2019 y 2020
 
 Obtener siglas de los braves para poder filtrar la base de datos histórica.
 ```R
@@ -237,7 +236,7 @@ braves_average_2020 <- braves_monthly_2020 %>% group_by(month_braves) %>% summar
 
 
 
-## ************************* Houston Astros 2019 y 2020 **********************************
+##  Houston Astros 2019 y 2020 
 
 Obtener siglas de los astros para poder filtrar la base de datos histórica.
 ```R
