@@ -3,10 +3,10 @@
 
 Se analizarán el promedio de carreras por mes de los 4 equipos finalistas para clasificar a la serie mundial del 2020, se busca comparar los resultados de 2020 y 2019, de esta forma se determinará si la pandemia de COVID-19 impactó en los resultados de estos equipos
  Equipos finalistas:
-- 1. Tampa Bay Rays
-- 2. Los Angeles Dodgers
-- 3. Houston Astros
-- 4. Atlanta Braves
+-  Tampa Bay Rays
+- Los Angeles Dodgers
+- Houston Astros
+- Atlanta Braves
 
 Cargar librerías.
 ```R
