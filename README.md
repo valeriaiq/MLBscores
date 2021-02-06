@@ -327,7 +327,7 @@ ggplot(mlb_2020, aes(month)) +
   theme(plot.title = element_text(hjust = 0.5))
 
 ```
-![Gráfica de Carreras Promedio 2020](https://github.com/valeriaiq/MLBscores/blob/main/score_2w_2020.png)
+![Gráfica de Carreras Promedio 2020](https://github.com/valeriaiq/MLBscores/blob/main/Weekly_score_2020.png)
 
 ### Data Frame de carreras promedio cada semana de los cuatro equipos finalistas en 2019 en temperada regular (hasta el mes de Septiembre)
 ```R
@@ -349,5 +349,5 @@ ggplot(mlb_2019, aes(month)) +
   ggtitle( "Carreras Promedio Cada Semana en 2019")+
   theme(plot.title = element_text(hjust = 0.5))
   ```
-![Gráfica de Carreras Promedio 2019](https://github.com/valeriaiq/MLBscores/blob/main/score_2w_2019.png)
+![Gráfica de Carreras Promedio 2019](https://github.com/valeriaiq/MLBscores/blob/main/Weekly_score_2019.png)
 
