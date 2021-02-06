@@ -322,7 +322,7 @@ ggplot(mlb_2020, aes(month)) +
   ggtitle( "Carreras Promedio por Mes en 2020") +
   theme(plot.title = element_text(hjust = 0.5))
 ```
-
+![Gráfica de Carreras Promedio 2020](https://github.com/valeriaiq/MLBscores/blob/main/MLB_2020.png)
 
 ### Data Frame de carreras promedio por mes de los cuatro equipos finalistas en 2019 en temperada regular (hasta el mes de Septiembre)
 ```R
@@ -343,5 +343,5 @@ ggplot(mlb_2019, aes(month)) +
   ggtitle( "Carreras Promedio por Mes en 2019")+
   theme(plot.title = element_text(hjust = 0.5))
   ```
-
+![Gráfica de Carreras Promedio 2019](https://github.com/valeriaiq/MLBscores/blob/main/MLB_2019.png)
 
