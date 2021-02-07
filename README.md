@@ -357,6 +357,10 @@ ggplot(mlb_2019, aes(month)) +
 
 ### Gráfica de cada equipo que muestra el comportamiento de su desempeño.
 
+![Astros 2020](https://github.com/valeriaiq/MLBscores/blob/main/Astros_2020.png)
+![Braves_2020](https://github.com/valeriaiq/MLBscores/blob/main/Braves_2020.png)
+![LAD_2020](https://github.com/valeriaiq/MLBscores/blob/main/LAD_2020.png)
+![Rays_2020](https://github.com/valeriaiq/MLBscores/blob/main/Rays_2020.png)
 
 
 
