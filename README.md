@@ -356,10 +356,53 @@ ggplot(mlb_2019, aes(month)) +
 ![Gráfica de Carreras Promedio 2019](https://github.com/valeriaiq/MLBscores/blob/main/Weekly_score_2019.png)
 
 ### Gráfica de cada equipo que muestra el comportamiento de su desempeño.
-
+Gráfica de Astros
+``` R
+ggplot(mlb_2020, aes(month)) + 
+  geom_line(aes(y = score_avg_astros,  colour = "Astros"), size= 1.0) +
+  ylab ("Carreras promedio anotadas") +
+  xlab ("Mes del año") +
+  labs(fill = "Equipo") +
+  #ggtitle( "Carreras Promedio Cada Semana en 2020")+
+  theme(plot.title = element_text(hjust = 0.5))
+ ```
 ![Astros 2020](https://github.com/valeriaiq/MLBscores/blob/main/Astros_2020.png)
-![Braves_2020](https://github.com/valeriaiq/MLBscores/blob/main/Braves_2020.png)
+Gráfica de Dodgers
+``` R
+ggplot(mlb_2020, aes(month)) + 
+  geom_line(aes(y = score_avg_LAD, colour = "Dodgers"), size=1.0) + 
+  ylab ("Carreras promedio anotadas") +
+  xlab ("Mes del año") +
+  labs(fill = "Equipo") +
+  #ggtitle( "Carreras Promedio Cada Semana en 2020")+
+  theme(plot.title = element_text(hjust = 0.5))
+
+ ```
 ![LAD_2020](https://github.com/valeriaiq/MLBscores/blob/main/LAD_2020.png)
+
+Gráfica de Braves
+``` R
+ggplot(mlb_2020, aes(month)) + 
+  geom_line(aes(y = score_avg_braves, colour = "braves"), size= 1.0) +
+  ylab ("Carreras promedio anotadas") +
+  xlab ("Mes del año") +
+  labs(fill = "Equipo") +
+  #ggtitle( "Carreras Promedio Cada Semana en 2020")+
+  theme(plot.title = element_text(hjust = 0.5))
+ ```
+ ![Braves_2020](https://github.com/valeriaiq/MLBscores/blob/main/Braves_2020.png)
+ 
+ Gráfica de Rays
+
+ ```R
+ggplot(mlb_2020, aes(month)) + 
+  geom_line(aes(y = score_avg_rays, colour = "Rays"), size= 1.0) +
+  ylab ("Carreras promedio anotadas") +
+  xlab ("Mes del año") +
+  labs(fill = "Equipo") +
+  #ggtitle( "Carreras Promedio Cada Semana en 2020")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
 ![Rays_2020](https://github.com/valeriaiq/MLBscores/blob/main/Rays_2020.png)
 
 
