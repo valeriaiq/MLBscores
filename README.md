@@ -355,3 +355,36 @@ ggplot(mlb_2019, aes(month)) +
   ```
 ![Gráfica de Carreras Promedio 2019](https://github.com/valeriaiq/MLBscores/blob/main/Weekly_score_2019.png)
 
+### Gráfica de cada equipo que muestra el comportamiento de su desempeño.
+
+
+
+
+### Prueba de Hipótesis para comprobar si el el número de casos por condado influye en las carreras promedio por semana anotadas por cada equipo.
+Combinando los data frames generados de casos de COVID-19 por condado sede del estadio de los finalistas y las carreras promedio por semana de cada equipo
+```R
+mlb_2020_covid <- cbind(AstrosCounty, BravesCounty, DodgersCounty, TampaCounty)
+mlb_2020_covid <- cbind(mlb_2020, mlb_2020_covid)
+```
+Regresión de Astros
+```R
+regresion_astros <- lm( f = score_avg_astros ~ NewCases...3 , mlb_2020_covid)
+summary(regresion_astros)
+```
+Regresión de Dodgers
+```R 
+regresion_LAD <- lm( f = score_avg_LAD ~ NewCases...9 , mlb_2020_covid)
+summary(regresion_LAD)
+```
+Regresión  de Rays
+```R 
+regresion_Rays <- lm( f = score_avg_rays ~ NewCases...12 , mlb_2020_covid)
+summary(regresion_Rays)
+```
+Regresión Braves
+```R 
+regresion_braves <- lm( f = score_avg_braves ~ NewCases...6 , mlb_2020_covid)
+summary(regresion_braves)
+```
+
+
